@@ -4,7 +4,7 @@ Donate link: http://thejourneyler.org/
 Tags: metadata, custom field, language, linguistics, library, archive, ISO 639-3, Ethnologue, doublin core
 Requires at least: 2.7
 Tested up to: 2.7.1
-Stable tag:
+Stable tag: 0.1.2-beta
 
 This plugin adds the ability to add an ISO 639-3 language code to the custom field of a post.
 
@@ -34,13 +34,13 @@ The ISO does but, you can contact the registrar, [SIL International](http://www.
 
 == Screenshots ==
 
-1. This is the automatic 
+1. `screenshot-1.jpg` This is the input field in the admin area. 
 
 
-2. This is the second screen shot
+2. `screenshot-2.jpg` You can search for a language code or a language name.
 
 
-3. Shows results for **ench**. "French". 
+3. `screenshot-3.jpg` Or part of the name of the language for example **ench** returns "French". 
 
 
 == Version History ==
