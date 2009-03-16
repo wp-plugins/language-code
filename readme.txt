@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: Kevin Cline, sil.linguist (Hugh Paterson III)
+Contributors: Kevin Cline, sil.linguist, (Hugh Paterson III)
 Donate link: http://thejourneyler.org/
 Tags: metadata, custom field, language, linguistics, library, archive, ISO 639-3, Ethnologue, doublin core
 Requires at least: 2.7
@@ -79,13 +79,19 @@ The ISO does but, you can contact the registrar, [SIL International](http://www.
 
 0.1.3: IN PROGRESS
 
-- I want to add this functionality to any form... Not sure which function to call. It needs to have this syntax/form: place `<?php do_action('plugin_name_hook'); ?>` in your templates/widget/form instead of a regualr for the form filed for ISO 639-3 will show up.
+- It would be nice to add the functionality to the plugin to allow an author to replace or insert any text field with the one auto suggesting language codes, by calling a function. It should probably have syntax or form after the order of: place `<?php do_action('plugin_name_hook'); ?>` in the templates/widget/. The end result for the user would be that they could create a meta-data input from more than just the admin area (i.e. a form in another plugin.)
+
 - Need to Validate input against table (instead of writing straight to the DB, write to cache, validate and then to DB) e.g. what if someone types in 'zzz' and 'zzz' is not a language code?
 - Add multiple codes to a post dynamically e.g. (I have a data file with 2 languages connected to one post, but not every post.)
-- Repository at wordpress.org
-- Translation file
+
+- Translation file (A `.po` file This is a two fold issue Language names are different in different languages i.e. Deutsch, German, Allemand. This might be a table being developed by another part of the ISO 639 standard. Possibly, 639-6 See this wikipedia article [http://en.wikipedia.org/wiki/ISO_639-6](http://en.wikipedia.org/wiki/ISO_639-6 "http://en.wikipedia.org/wiki/ISO_639-6"))
+
 - Add hook for disply in theme per key
-- Register on wordpress.org and advertise
+
+Because each of the ISO 639-3 codes are stored in a custom field, and each custom field has two parts, a key and a value, It is necessary to be able to set the key as well as the value (and the default key). The Plug-in in its current state has only focused on adding the value part of the key-value pair. It is important for developers to know that a single post should be able to have more than one key with language codes in them. For example, if I have a post which is a linguistics exercise in phonology, then I might want to put the language of the instructions of the exercise in one key and the language code of the exercise data in another key. 
+
+An entirely different scenario is one where a post has two languages under one key. This is currently unaccounted for with the current state of the plug-in. E.g. If in the body of a post an author were to use two languages equally then they might want to use the same key to represent both languages. 
+
   - Promote at Weblog Tools Collection
   - Promote Using Social Networking
   - Promote On Your Own Blog
@@ -95,17 +101,17 @@ The ISO does but, you can contact the registrar, [SIL International](http://www.
 
 0.1.4: 
 
-- Auto detect and import of SIL's tab file for updating from [http://www.sil.org/ISO639-3/iso-639-3_20090210.tab](http://www.sil.org/ISO639-3/iso-639-3_20090210.tab "http://www.sil.org/ISO639-3/iso-639-3_20090210.tab").
-- Update notice (do we need to do anything here?)
-- persue use of ISO 639-3 with doublin core metadata standard 
+- Auto detect and import of SIL's tab file when SIL updates their tab file at: [http://www.sil.org/ISO639-3/iso-639-3_20090210.tab](http://www.sil.org/ISO639-3/iso-639-3_20090210.tab "http://www.sil.org/ISO639-3/iso-639-3_20090210.tab").
+- Update notice to the user so that they know to update their plug-in every year when SIL updates their ISO changes. Or decide to follow a regular release cycle (at least annually) and maintenance with this plugin.
+
+- pursue use of ISO 639-3 in conjunction with the doublin core metadata standard 
 
 	* Doublin Core metadata plugin
 	 - http://www.brainonfire.net/blog/add-dublin-core-metadata-to-wordpress/
 	 - http://www.brainonfire.net/resources/files/dublin-core-for-wordpress/
+	 - http://dublincore.org/documents/dcmi-terms/
+	 - http://dublincore.org/documents/dcmi-terms/#ses-ISO639-3
 
 2.0 :
 
 - Consider development beyond ISO 639-3 to ISO 639.
-    
-
-	
