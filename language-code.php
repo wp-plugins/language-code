@@ -3,7 +3,7 @@
 Plugin Name: Language Code Classification
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Allowes content to be associated in a custom field with <a href="http://www.sil.org/iso639-3/">ISO 639-3</a> codes.
-Version:  0.1.2 Beta
+Version:  0.1.3 Beta
 Author: Kevin Cline
 Author URI: http://LingEx.org/wordpress/?page_id=71/#Kevin
 */
@@ -30,7 +30,7 @@ function language_code_install() {
       
     $columns = "Id, Part2B, Part2T, Part1, Scope, Type, Ref_Name, Comment";
     
-    $csv = fopen(ABSPATH ."wp-content/plugins/language_code/codes.tab", "r");
+    $csv = fopen(ABSPATH ."wp-content/plugins/language-code/codes.tab", "r");
 
     if ($csv) {
       $data = fgetcsv($csv, 4096, "\t");
@@ -156,14 +156,14 @@ function language_code_save_postdata( $post_id ) {
 /* Add Prototype and Script.aculo.us to the head */
 function language_code_lib_javascript_autocompleter(){
 	wp_enqueue_script('jquery');
-	wp_enqueue_script('autocompleter',WP_PLUGIN_URL.'/language_code/jquery.autocomplete.js',array('jquery'),'1.0'); 
+	wp_enqueue_script('autocompleter',WP_PLUGIN_URL.'/language-code/jquery.autocomplete.js',array('jquery'),'1.0'); 
 }
 add_action('init', 'language_code_lib_javascript_autocompleter');
 
 /* Add the autocompleter css */
 function language_code_css_autocompleter(){
 	//Style
-	wp_register_style('autocompleter', WP_PLUGIN_URL.'/language_code/autocompleter.css');
+	wp_register_style('autocompleter', WP_PLUGIN_URL.'/language-code/autocompleter.css');
 	wp_enqueue_style('autocompleter');
 	wp_print_styles();
 }
@@ -175,7 +175,7 @@ function language_code_javascript_autocompleter(){
 	echo '<script type="text/javascript">
 		jQuery(document).ready(function() {
 			jQuery("input[name=language_code]").autocomplete(
-				"'.WP_PLUGIN_URL.'/language_code/values.php",
+				"'.WP_PLUGIN_URL.'/language-code/values.php",
 				{
 					delay:1,
 					minChars:2,

@@ -1,10 +1,10 @@
 === Plugin Name ===
-Contributors: Kevin Cline, sil.linguist, (Hugh Paterson III)
-Donate link: http://thejourneyler.org/
+Contributors: superkc9, sil.linguist, philfreo
+Donate link: http://pro.thejourneyler.org/partnership
 Tags: metadata, custom field, language, linguistics, library, archive, ISO 639-3, Ethnologue, doublin core
 Requires at least: 2.7
-Tested up to: 2.7.1
-Stable tag: 0.1.2-beta
+Tested up to: 2.9
+Stable tag: 0.1.3
 
 This plugin adds the ability to add an ISO 639-3 language code to the custom field of a post.
 
@@ -31,6 +31,11 @@ ISO 639-3 codes are codes for the representation of names of languages. ISO 639-
 
 The ISO does but, you can contact the registrar, [SIL International](http://www.sil.org/iso639-3/default.asp#contact/ "SIL International").
 
+= What are the plugin dependencies? =
+
+Everything you need to make this plugin work with wordpress ships with the plugin.
+However in our code we have used the ISO 639-3 UTF-8 table provided by SIL International [http://www.sil.org/ISO639-3/iso-639-3_20090210.tab](http://www.sil.org/ISO639-3/iso-639-3_20090210.tab "http://www.sil.org/ISO639-3/iso-639-3_20090210.tab") This table is updated annualy. 
+We also have used and modified the jQuery autocomplete script made availible by PengoWorks.Com (http://www.pengoworks.com/workshop/jquery/autocomplete.htm "http://www.pengoworks.com/workshop/jquery/autocomplete.htm") 
 
 == Screenshots ==
 
@@ -43,9 +48,13 @@ The ISO does but, you can contact the registrar, [SIL International](http://www.
 3. `screenshot-3.jpg` Or part of the name of the language for example **ench** returns "French". 
 
 
-== Version History ==
+== Changelog ==
 
-0.1.2: CURRENT VERSION
+0.1.3: CURRENT VERSION
+
+- bug fix: changed the plugin folder name from language_code to language-code to follow WP Extend conventions. This also affected several paths to. js files.
+
+0.1.2: 
 
 - Promoted at the WordPress Plugin Database as 0.1.2 beta
 - The autocomplete seems to work better now. Can do accent/case insensitive searches.
@@ -71,15 +80,24 @@ The ISO does but, you can contact the registrar, [SIL International](http://www.
 - Import ISO 639-3 to WP_ table Creation
 
 
+== Upgrade Notice ==
+
+= 0.1.3 =
+This version corrects a folder namin issue enabling the plugin to correctly access the autocomplete.js file when the plugin is downloaded from WP Extend. 
+
+
 == Known bugs and/or conflicts ==
 
-- None
+- version 0.1.3 **None**
+
+- version 0.1.2-beta  plugin folder needs to be renamed to langauge_code this is corrected in version 0.1.3
+
 
 == Development Plan ==
 
-0.1.3: IN PROGRESS
+0.1.4: IN PROGRESS
 
-- It would be nice to add the functionality to the plugin to allow an author to replace or insert any text field with the one auto suggesting language codes, by calling a function. It should probably have syntax or form after the order of: place `<?php do_action('plugin_name_hook'); ?>` in the templates/widget/. The end result for the user would be that they could create a meta-data input from more than just the admin area (i.e. a form in another plugin.)
+- It would be nice to add the functionality to the plugin to allow an author to replace or insert any text field with the one auto suggesting language codes, by calling a function. It should probably have syntax or form after the order of: place `<?php do_action('plugin_name_hook'); ?>` in the templates/widget/. The end result for the user would be that they could create a meta-data input from more than just the admin area (i.e. a from in another plugin, like a form creator, or the front end of WP.)
 
 - Need to Validate input against table (instead of writing straight to the DB, write to cache, validate and then to DB) e.g. what if someone types in 'zzz' and 'zzz' is not a language code?
 - Add multiple codes to a post dynamically e.g. (I have a data file with 2 languages connected to one post, but not every post.)
@@ -99,7 +117,7 @@ An entirely different scenario is one where a post has two languages under one k
     * A list of features.
     * Contact or support information (or comments enabled)
 
-0.1.4: 
+0.1.5: 
 
 - Auto detect and import of SIL's tab file when SIL updates their tab file at: [http://www.sil.org/ISO639-3/iso-639-3_20090210.tab](http://www.sil.org/ISO639-3/iso-639-3_20090210.tab "http://www.sil.org/ISO639-3/iso-639-3_20090210.tab").
 - Update notice to the user so that they know to update their plug-in every year when SIL updates their ISO changes. Or decide to follow a regular release cycle (at least annually) and maintenance with this plugin.
